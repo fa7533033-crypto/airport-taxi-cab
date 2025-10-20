@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Airport Taxi & Executive Transfers | 24/7 Phone Booking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f1a; --bg2:#0e1324; --card:#121a2c; --text:#eef3ff; --muted:#a6b2c7;
+      --accent:#5dd0ff; --accent2:#7cf9a6; --border:rgba(255,255,255,.12); --radius:18px;
+      --gold:#f1c40f; --ink:#0a0f1c;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto;
+      color:var(--text);background:radial-gradient(1200px 800px at 80% -10%,rgba(93,208,255,.08),transparent 60%),
+      linear-gradient(180deg,var(--bg),var(--bg2))}
+    .wrap{max-width:1120px;margin:0 auto;padding:28px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:44px;height:44px;border-radius:14px;background:conic-gradient(from 180deg,#2b5cff,#26d3ff,#2b5cff);
+      box-shadow:0 8px 30px rgba(93,208,255,.35)}
+    h1{font-size:24px;margin:0}
+    nav a{color:#bfe9ff;text-decoration:none;margin-left:16px;font-weight:600}
+    .hero{margin:24px 0;padding:24px;border:1px solid var(--border);border-radius:var(--radius);
+      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));display:grid;gap:16px}
+    .hero h2{margin:0;font-size:30px}
+    .hero p{margin:0;color:var(--muted)}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;border:1px solid var(--border);
+      color:#081122;background:linear-gradient(135deg,var(--accent),var(--accent2));font-weight:700;text-decoration:none}
+    .ghost{background:transparent;color:#eaf1ff;border-color:rgba(255,255,255,.2)}
+    .grid{display:grid;gap:18px;grid-template-columns:1fr}
+    @media(min-width:900px){.grid{grid-template-columns:1.2fr .8fr}}
+    .card{padding:20px;border-radius:var(--radius);border:1px solid var(--border);
+      background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    label{display:block;font-size:13px;margin:8px 0 6px;color:var(--muted)}
+    input,select,textarea{width:100%;padding:12px;border-radius:12px;border:1px solid var(--border);background:#0b1426;color:var(--text)}
+    .row{display:grid;gap:10px;grid-template-columns:1fr}
+    @media(min-width:620px){.row{grid-template-columns:repeat(2,1fr)}}
+    .ok{display:none;margin-top:12px;background:rgba(124,249,166,.12);border:1px solid rgba(124,249,166,.4);color:#caffe1;padding:10px;border-radius:12px}
+    .error{display:none;margin-top:12px;background:rgba(255,0,0,.08);border:1px solid rgba(255,0,0,.35);color:#ffd4d4;padding:10px;border-radius:12px}
+    .list{display:grid;gap:8px}
+    .list div{display:flex;gap:10px;align-items:flex-start}
+    .bullet{width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:8px}
+    footer{margin-top:28px;border-top:1px solid var(--border);padding-top:16px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    footer a{color:#bfe9ff;text-decoration:none}
+    /* Sticky Call Bar (desktop) */
+    #callBar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;gap:12px;
+      background:linear-gradient(135deg,#1b2a4a,#10203e);padding:10px 12px;border-top:1px solid rgba(255,255,255,.12);z-index:999}
+    #callBar a{color:#fff;text-decoration:none;font-weight:700;font-size:16px;padding:10px 16px;border-radius:10px;background:rgba(255,255,255,.12)}
+    #callBar a:hover{background:rgba(255,255,255,.2)}
+    /* Floating Call Button (mobile only) */
+    @media (max-width:720px){
+      #callBar{display:none}
+      .call-float{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;
+        background:linear-gradient(135deg,#3b82f6,#06b6d4);box-shadow:0 8px 22px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;z-index:9999;text-decoration:none}
+      .call-float span{font-size:22px;color:#fff;line-height:1}
+    }
+    .pill{display:inline-flex;gap:6px;flex-wrap:wrap}
+    .pill span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:6px 10px;border-radius:999px;font-size:12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <h1>Airport Taxi & Executive Transfers</h1>
+          <div class="pill"><span>Heathrow</span><span>Gatwick</span><span>Luton</span><span>Stansted</span><span>City</span><span>Birmingham</span><span>Edinburgh</span><span>Liverpool</span><span>Glasgow</span></div>
+        </div>
+      </div>
+      <nav>
+        <a href="#quote">Quote</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>Book Your Airport Ride in 1 Minute</h2>
+      <p>Licensed drivers • Meet & Greet • Live flight tracking • Fixed fares • 24/7 phone booking</p>
+      <div class="cta-row">
+        <a class="btn" href="tel:+442033181026">📞 Call 0203 318 1026</a>
+        <a class="btn ghost" href="#quote">Get Instant Quote</a>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="card" id="quote">
+        <h3>Request a Quote / Booking</h3>
+        <p class="muted">Enter your details and tap “Call to Confirm”.</p>
+        <div class="row">
+          <div>
+            <label for="pickup">Pickup</label>
+            <input id="pickup" placeholder="e.g., Heathrow T3 / 221B Baker St" />
+          </div>
+          <div>
+            <label for="dropoff">Drop‑off</label>
+            <input id="dropoff" placeholder="e.g., Central London / Hotel" />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="date">Date</label>
+            <input id="date" type="date" />
+          </div>
+          <div>
+            <label for="time">Time</label>
+            <input id="time" type="time" />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="pax">Passengers</label>
+            <select id="pax"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select>
+          </div>
+          <div>
+            <label for="vehicle">Vehicle Type</label>
+            <select id="vehicle">
+              <option>Standard</option>
+              <option>Executive</option>
+              <option>XL (6-8 Seater)</option>
+              <option>Luxury (S‑Class/7 Series)</option>
+            </select>
+          </div>
+        </div>
+        <label for="notes">Notes (optional)</label>
+        <textarea id="notes" rows="3" placeholder="Luggage count, special requests, gate info"></textarea>
+        <div class="cta-row">
+          <button class="btn" id="buildQuote">Create Quote</button>
+          <a class="btn" id="callConfirm" href="tel:+442033181026">📞 Call to Confirm</a>
+        </div>
+        <div class="ok" id="ok">Quote ready! Call us to confirm your booking. Your details are shown below.</div>
+        <div class="error" id="err">Please enter pickup & drop‑off to generate a quote.</div>
+        <pre id="quotePreview" style="display:none;margin-top:12px;padding:12px;border-radius:12px;background:#0b1426;border:1px dashed rgba(255,255,255,.15);white-space:pre-wrap;color:#cfe7ff"></pre>
+      </section>
+
+      <aside class="card">
+        <h3>Why Ride With Us</h3>
+        <div class="list">
+          <div><div class="bullet"></div><div>24/7 service across major UK airports</div></div>
+          <div><div class="bullet"></div><div>Meet & Greet + live flight tracking</div></div>
+          <div><div class="bullet"></div><div>Professional, PCO‑licensed drivers</div></div>
+          <div><div class="bullet"></div><div>Executive & luxury vehicles available</div></div>
+          <div><div class="bullet"></div><div>Secure payments & instant receipts</div></div>
+        </div>
+      </aside>
+    </div>
+
+    <section class="card" id="contact" style="margin-top:18px">
+      <h3>Contact Us</h3>
+      <p class="muted">Reach our 24/7 booking desk by phone.</p>
+      <p>📞 <a href="tel:+442033181026">0203 318 1026</a> (UK Line)</p>
+      <p>📧 <a href="mailto:info@airporttransfers.co.uk">info@airporttransfers.co.uk</a></p>
+      <p>📍 Airport Transfers UK, London, United Kingdom</p>
+    </section>
+
+    <footer>
+      <span>© Airport Transfers UK — All rights reserved.</span>
+      <span><a href="#quote">Get Quote</a> • <a href="#contact">Contact</a></span>
+    </footer>
+  </div>
+
+  <!-- Sticky Call bar on desktop -->
+  <div id="callBar">
+    <a href="tel:+442033181026">📞 Call 0203 318 1026</a>
+  </div>
+
+  <!-- Floating circular Call button on mobile -->
+  <a class="call-float" href="tel:+442033181026" aria-label="Call Now"><span>📞</span></a>
+
+  <script>
+    // Build a human-readable quote preview to show under the form.
+    const ok = document.getElementById('ok');
+    const err = document.getElementById('err');
+    const buildQuote = document.getElementById('buildQuote');
+    const preview = document.getElementById('quotePreview');
+    const pickup = document.getElementById('pickup');
+    const dropoff = document.getElementById('dropoff');
+    const date = document.getElementById('date');
+    const time = document.getElementById('time');
+    const pax = document.getElementById('pax');
+    const vehicle = document.getElementById('vehicle');
+    const notes = document.getElementById('notes');
+
+    function buildText(){
+      const parts = [
+        'Airport Transfer Quote:',
+        'Pickup: ' + (pickup.value||''),
+        'Drop-off: ' + (dropoff.value||''),
+        'Date: ' + (date.value||''),
+        'Time: ' + (time.value||''),
+        'Passengers: ' + (pax.value||''),
+        'Vehicle: ' + (vehicle.value||''),
+        'Notes: ' + (notes.value||'')
+      ].join('\n');
+      return parts;
+    }
+
+    buildQuote.addEventListener('click', () => {
+      if(!pickup.value.trim() || !dropoff.value.trim()){
+        err.style.display='block'; ok.style.display='none'; preview.style.display='none'; return;
+      }
+      err.style.display='none'; ok.style.display='block';
+      preview.textContent = buildText();
+      preview.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
